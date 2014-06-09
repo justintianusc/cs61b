@@ -1,9 +1,0 @@
-Problem 1
----------
-Write a program that reads a String from the keyboard. The program should then
-construct a URL for http://www.X.com/, replacing X with the String read in, and
-print the first five lines of the Web page at that URL in REVERSE ORDER; i.e.,
-the fifth, fourth, third, second, and first lines.
-We’ve already created a skeleton for you in the file OpenCommercial.java; you
-just need to fill it in. Use the println method to print each of the five
-lines, so that there’s a carriage return at the end of each line.
