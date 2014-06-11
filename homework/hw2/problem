@@ -35,3 +35,107 @@ this rule in your program even if you know information to the contrary.)
   public static boolean isValidDate(int month, int day, int year) {
     ...
   }
+  
+  Part II
+-------
+Define the internal state that a "Date" object needs to have by declaring some
+data fields (all private) within the Date class.  Define the basic constructor
+specified below.  A Date should be constructed only if the date is valid.  If
+a caller attempts to construct an invalid date, the program should halt after
+printing an error message of your choosing.  To halt the program, include the
+line:
+
+  System.exit(0);
+
+
+  /** Constructs a date with the given month, day and year.   If the date is
+   *  not valid, the entire program will halt with an error message.
+   *  @param month is a month, numbered in the range 1...12.
+   *  @param day is between 1 and the number of days in the given month.
+   *  @param year is the year in question, with no digits omitted.
+   */
+  public Date(int month, int day, int year) {
+    ...
+  }
+
+  /** Returns a string representation of this date in the form month/day/year.
+   *  The month, day, and year are expressed in full as integers; for example,
+   *  12/7/2006 or 3/21/407.
+   *  @return a String representation of this date.
+   */
+  public String toString() {
+    ...
+  }
+
+Part III
+--------
+Implement the following methods.
+
+  /** Determines whether this Date is before the Date d.
+   *  @return true if and only if this Date is before d. 
+   */
+  public boolean isBefore(Date d) {
+    ...
+  }
+
+  /** Determines whether this Date is after the Date d.
+   *  @return true if and only if this Date is after d. 
+   */
+  public boolean isAfter(Date d) {
+    ...
+  }
+
+  /** Returns the number of this Date in the year.
+   *  @return a number n in the range 1...366, inclusive, such that this Date
+   *  is the nth day of its year.  (366 is used only for December 31 in a leap
+   *  year.)
+   */
+  public int dayInYear() {
+    ...
+  }
+
+  /** Determines the difference in days between d and this Date.  For example,
+   *  if this Date is 12/15/2012 and d is 12/14/2012, the difference is 1.
+   *  If this Date occurs before d, the result is negative.
+   *  @return the difference in days between d and this date.
+   */
+  public int difference(Date d) {
+    ...
+  }
+
+Hint 1:  once you've implemented isBefore(), it's possible to implement
+isAfter() with just one line of code.  You need to think carefully, though:
+"return !isBefore(d)" is incorrect.  Can you see why?
+
+Hint 2:  all the methods in the Date class can read all the private fields in
+_any_ Date object (not just "this" Date object).
+
+Part IV
+-------
+Implement the final missing piece of your class, a second constructor that
+takes a String argument.
+
+  /** Constructs a Date object corresponding to the given string.
+   *  @param s should be a string of the form "month/day/year" where month must
+   *  be one or two digits, day must be one or two digits, and year must be
+   *  between 1 and 4 digits.  If s does not match these requirements or is not
+   *  a valid date, the program halts with an error message of your choice.
+   */
+  public Date(String s) {
+    ...
+  }
+
+We're flexible on how you handle dates that are "almost correct".  For example,
+the string "  011/4/2010 AD" is technically not valid because of the spaces and
+letters and leading zero, but it's your choice whether you treat it the same as
+"11/4/2010" or halt with an error message.  We won't be pedantic about this or
+make it gratuitously difficult, so please don't worry about these "edge cases"
+(and please don't ask tons of clarification questions on Piazza--we're not
+going to have trick test cases).
+
+But your Date constructor definitely should not accept "11/31/2009" or "12/4"
+or "hey dude".  These aren't ambiguous cases; they're clearly wrong.
+
+Hint:  use the online Java API to familiarize yourself with all the methods
+available to you in the String class.
+
